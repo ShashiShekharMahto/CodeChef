@@ -1,0 +1,19 @@
+t = int(input())
+for i in range(t):
+    nq = input().split(" ")
+    n = int(nq[0])
+    q = int(nq[1])
+    sum = 0
+    l = 0 #storing the destination value of previous q
+    for i in range(q):
+        sd = input().split(" ")
+        s = int(sd[0])
+        d = int(sd[1])
+        sum += abs(d-s) #summation of difference of destination floor and source floor
+        if(i == 0):
+            sum += abs(s-0) #initally lift at ground floor
+        if(i>0):
+            sum += abs(s-l) #summation of difference of previous destination floor and current source floor
+        l = d #storin the destination floor value in the l for finding "sum += abs(s-l)" this value
+    print(sum) #printing the final sum
+        
